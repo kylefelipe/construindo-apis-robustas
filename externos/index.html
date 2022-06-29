@@ -1,0 +1,1270 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../imgs/favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
+    
+    
+      
+        <title>🤝 Integração com serviços externos - Construindo APIs robustas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="brown" data-md-color-accent="amber">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#integracao-com-servicos-externos" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Construindo APIs robustas" class="md-header__button md-logo" aria-label="Construindo APIs robustas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2M1 2v2h2l3.6 7.59-1.36 2.45c-.15.28-.24.61-.24.96a2 2 0 0 0 2 2h12v-2H7.42a.25.25 0 0 1-.25-.25c0-.05.01-.09.03-.12L8.1 13h7.45c.75 0 1.41-.42 1.75-1.03l3.58-6.47c.07-.16.12-.33.12-.5a1 1 0 0 0-1-1H5.21l-.94-2M7 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Construindo APIs robustas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              🤝 Integração com serviços externos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="brown" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="brown" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cassiobotaro/construindo-apis-robustas" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cassiobotaro/construindo-apis-robustas
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Construindo APIs robustas" class="md-nav__button md-logo" aria-label="Construindo APIs robustas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2M1 2v2h2l3.6 7.59-1.36 2.45c-.15.28-.24.61-.24.96a2 2 0 0 0 2 2h12v-2H7.42a.25.25 0 0 1-.25-.25c0-.05.01-.09.03-.12L8.1 13h7.45c.75 0 1.41-.42 1.75-1.03l3.58-6.47c.07-.16.12-.33.12-.5a1 1 0 0 0-1-1H5.21l-.94-2M7 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2Z"/></svg>
+
+    </a>
+    Construindo APIs robustas
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cassiobotaro/construindo-apis-robustas" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cassiobotaro/construindo-apis-robustas
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        ▶️ Introdução
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planejando/" class="md-nav__link">
+        💭 Planejando o que será desenvolvido
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ferramentas/" class="md-nav__link">
+        🧰 Escolhendo as melhores ferramentas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projeto/" class="md-nav__link">
+        📐 Iniciando o projeto
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ola_api/" class="md-nav__link">
+        👋 Olá API
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          🤝 Integração com serviços externos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        🤝 Integração com serviços externos
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definindo-um-esquema-de-entrada-de-dados-e-resposta" class="md-nav__link">
+    📄 Definindo um esquema de entrada de dados e resposta
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escrevendo-codigo" class="md-nav__link">
+    ✍️ Escrevendo código
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refatorando-o-codigo" class="md-nav__link">
+    🧙 Refatorando o código
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrando-a-api-do-magalu" class="md-nav__link">
+    🔗 Integrando a API do Magalu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testando-manualmente" class="md-nav__link">
+    🔧 Testando manualmente
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salvando-a-versao-atual-do-codigo" class="md-nav__link">
+    💾 Salvando a versão atual do código
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs/" class="md-nav__link">
+        📜 Documentação
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../continua/" class="md-nav__link">
+        ✔️ Integração contínua
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../desafios/" class="md-nav__link">
+        🏆 Desafios
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assincrono/" class="md-nav__link">
+        🐆 Processos assíncronos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../breaker/" class="md-nav__link">
+        🔌 Circuit breaker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../avancadas/" class="md-nav__link">
+        🦸 Técnicas (um pouco mais avançadas)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../referencias/" class="md-nav__link">
+        📑 Referências e Dicas
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definindo-um-esquema-de-entrada-de-dados-e-resposta" class="md-nav__link">
+    📄 Definindo um esquema de entrada de dados e resposta
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escrevendo-codigo" class="md-nav__link">
+    ✍️ Escrevendo código
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refatorando-o-codigo" class="md-nav__link">
+    🧙 Refatorando o código
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrando-a-api-do-magalu" class="md-nav__link">
+    🔗 Integrando a API do Magalu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testando-manualmente" class="md-nav__link">
+    🔧 Testando manualmente
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salvando-a-versao-atual-do-codigo" class="md-nav__link">
+    💾 Salvando a versão atual do código
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/cassiobotaro/construindo-apis-robustas/edit/master/docs/externos.md" title="Editar esta página" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="integracao-com-servicos-externos">🤝 Integração com serviços externos</h1>
+<p><img alt="" src="../imgs/externo.jpg" /></p>
+<p>Certo, temos a verificação da integridade do sistema, mas ainda temos outras funcionalidades a serem implementadas.</p>
+<p>Nossa próxima tarefa será:</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Dado um pedido, retornar os seus itens</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Os itens de um pedido devem conter um identificador (sku), uma descrição, uma imagem, uma referência e a quantidade.</p>
+</li>
+</ul>
+<p>Mas antes disto, precisamos conhecer a API que iremos integrar. <a href="../explorando_api/">Vamos explorar a API do Magalu</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Como as APIs abertas do Magalu se encontram em alpha, uma autorização prévia é necessária. Por isso, você pode utilizar uma versão simulada da mesma.</p>
+<p>As instruções de instalação e execução se encontram no readme do <a href="./apis-simuladas">projeto</a>.</p>
+<p>Lembre-se de trocar "https://alpha.dev.magalu.com/" por "http://localhost:8080".</p>
+<p>A APIKEY utilizada no acesso simulado é "5734143a-595d-405d-9c97-6c198537108f".</p>
+<p>Não deixe de explorar a API como demonstrado acima, mesmo que seja sua versão simulada.</p>
+</div>
+<h2 id="definindo-um-esquema-de-entrada-de-dados-e-resposta">📄 Definindo um esquema de entrada de dados e resposta</h2>
+<p>Nosso cliente deseja obter os itens de um pedido, vamos assumir então que ele possui a identificação do mesmo.</p>
+<p>O retorno deve ser uma lista contendo a identificação e a quantidade daqueles produtos.</p>
+<p>Iremos fazer a junção dos pacotes.</p>
+<p>A rota para acesso desse recurso pode ser <code>/orders/{identificação do pedido}/items</code> assim temos uma entrada de dados bem definida através da url.</p>
+<p>A identificação do pedido deve ser um uuid válido, caso isto não ocorra devemos avisar que o pedido não foi encontrado.</p>
+<p>Nossa saída de dados será similar a apresentada abaixo:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;sku&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;229010200&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Kit Fraldas Huggies Turma da Mônica Supreme Care&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;image_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://a-static.mlcdn.com.br/{w}x{h}/kit-fraldas-huggies-turma-da-monica-supreme-care-tam-g-9-a-125kg-4-pacotes-com-64-unidades-cada/magazineluiza/229010200/8a99f6f5f613ef51676384884c3a10fc.jpg&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;reference&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tam. G 9 a 12,5kg 4 Pacotes com 64 Unidades Cada&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre></div>
+<p>Vamos escrever um esquema representando esta nossa saída de dados?</p>
+<p>Vamos criar um arquivo <code>api_pedidos/esquema.py</code> e dentro dele vamos adicionar o seguinte conteúdo:</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Utilizaremos a biblioteca <a href="https://pydantic-docs.helpmanual.io/">pydantic</a> para definir nosso esquema, ela já possui integração com o <em>FastAPI</em> e é uma das mais poderosas ferramentas disponíveis no mercado.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">sku</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">image_url</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">reference</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">quantity</span><span class="p">:</span> <span class="nb">int</span>
+</code></pre></div>
+<h2 id="escrevendo-codigo">✍️ Escrevendo código</h2>
+<blockquote>
+<p>Daqui pra frente sempre que ver ❌ escreva o teste mostrado e em seguida rode os testes que devem falhar.
+Logo em seguida deverá aparecer ✔️ e o trecho de código que deve ser alterado. Lembre-se de rodar os testes para garantir que estão funcionando.</p>
+</blockquote>
+<p>Como temos bem definido que a entrada de dados deve ser um uuid válido, vamos escrever nosso primeiro teste deste <em>endpoint</em> à partir disto.</p>
+<p>❌</p>
+<blockquote>
+<p>tests/test_api.py
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_obter_itens_quando_receber_identificacao_do_pedido_invalido_um_erro_deve_ser_retornado</span><span class="p">(</span><span class="n">cliente</span><span class="p">):</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/valor-invalido/items&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">UNPROCESSABLE_ENTITY</span>
+</code></pre></div></p>
+</blockquote>
+<p>✔️ </p>
+<blockquote>
+<p>api_pedidos/api.py
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span>
+
+<span class="c1"># ...</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/</span><span class="si">{identificacao_do_pedido}</span><span class="s2">/items&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">listar_itens</span><span class="p">(</span><span class="n">identificacao_do_pedido</span><span class="p">:</span> <span class="n">UUID</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div></p>
+</blockquote>
+<p>A verificação de uma identificação de pedido como UUID está testada. </p>
+<p>Próximo passo é testar a obtenção de um pedido e em seguida seus itens.</p>
+<p>❌</p>
+<blockquote>
+<p>tests/test_api.py
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_obter_itens_quando_identificacao_do_pedido_nao_encontrado_um_erro_deve_ser_retornado</span><span class="p">(</span><span class="n">cliente</span><span class="p">):</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/7e290683-d67b-4f96-a940-44bef1f69d21/items&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span>
+</code></pre></div></p>
+<p>🎎 Vamos criar dublês para testar a obtenção de um pedido e seus itens, assim não precisamos realizar a requisição real por enquanto.</p>
+</blockquote>
+<p>O dublê pode ser escrito da seguinte maneira:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">duble</span><span class="p">(</span><span class="n">identificacao_do_pedido</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">]:</span>
+    <span class="k">raise</span> <span class="n">PedidoNaoEncontradoError</span><span class="p">()</span>
+</code></pre></div>
+<p>❌</p>
+<blockquote>
+<p>tests/test_api.py
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span>
+<span class="kn">from</span> <span class="nn">api_pedidos.esquema</span> <span class="kn">import</span> <span class="n">Item</span>
+<span class="kn">from</span> <span class="nn">api_pedidos.excecao</span> <span class="kn">import</span> <span class="n">PedidoNaoEncontradoError</span>
+<span class="c1"># ...</span>
+
+<span class="k">def</span> <span class="nf">test_obter_itens_quando_identificacao_do_pedido_nao_encontrado_um_erro_deve_ser_retornado</span><span class="p">(</span><span class="n">cliente</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">duble</span><span class="p">(</span><span class="n">identificacao_do_pedido</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="n">PedidoNaoEncontradoError</span><span class="p">()</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/7e290683-d67b-4f96-a940-44bef1f69d21/items&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span>
+</code></pre></div></p>
+</blockquote>
+<p>Como deve ter notado, um erro acontece pois não definimos o nosso erro.</p>
+<blockquote>
+<p>api_pedidos/excecao.py
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">PedidoNaoEncontradoError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div></p>
+</blockquote>
+<p>Ainda não estamos utilizando nosso dublê, isso porque não temos uma função que retorne os itens  de um pedido a ser substituida.</p>
+<p>Vamos declará-la e avisar ao endpoint para utilizá-la:</p>
+<blockquote>
+<p>api_pedidos/api.py
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Depends</span>
+<span class="kn">from</span> <span class="nn">api_pedidos.esquema</span> <span class="kn">import</span> <span class="n">Item</span>
+<span class="c1"># ...</span>
+
+
+<span class="k">def</span> <span class="nf">recuperar_itens_por_pedido</span><span class="p">(</span><span class="n">identificacao_do_pedido</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">]:</span>
+    <span class="k">pass</span>
+
+<span class="c1"># ...</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/</span><span class="si">{identificacao_do_pedido}</span><span class="s2">/items&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">listar_itens</span><span class="p">(</span><span class="n">itens</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">]</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">recuperar_itens_por_pedido</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">itens</span>
+</code></pre></div></p>
+</blockquote>
+<p>Estamos utilizando aqui uma técnica de <a href="https://fastapi.tiangolo.com/tutorial/dependencies/">injeção de dependência</a>. Esta técnica vai nos permitir mudar o recuperador de itens para um dublê nos testes e também nos permite no futuro mudar a tecnologia/maneira utilizada para recuperar os itens de um pedido sem precisar modificar todos os lugares que dependem da função de recuperação de itens.</p>
+<p>A simples definição da função já é suficiente para que possamos modificá-la posteriormente nos testes.</p>
+<p>Vamos voltar ao nosso teste, substituir a nossa dependência e rodar novamente.</p>
+<p>❌</p>
+<blockquote>
+<p>tests/test_api.py
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">api_pedidos.api</span> <span class="kn">import</span> <span class="n">app</span><span class="p">,</span> <span class="n">recuperar_itens_por_pedido</span>
+
+
+<span class="c1"># ...</span>
+
+<span class="k">def</span> <span class="nf">test_obter_itens_quando_identificacao_do_pedido_nao_encontrado_um_erro_deve_ser_retornado</span><span class="p">(</span><span class="n">cliente</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">duble</span><span class="p">(</span><span class="n">identificacao_do_pedido</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="n">PedidoNaoEncontradoError</span><span class="p">()</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">dependency_overrides</span><span class="p">[</span><span class="n">recuperar_itens_por_pedido</span><span class="p">]</span> <span class="o">=</span> <span class="n">duble</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/ea78b59b-885d-4e7b-9cd0-d54acadb4933/items&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span>
+</code></pre></div></p>
+</blockquote>
+<p>Agora vamos preparar nosso sistema para tratar este erro.</p>
+<p>✔️ </p>
+<blockquote>
+<p>api_pedidos/api.py
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">api_pedidos.excecao</span> <span class="kn">import</span> <span class="n">PedidoNaoEncontradoError</span>
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">Request</span>
+<span class="kn">from</span> <span class="nn">fastapi.responses</span> <span class="kn">import</span> <span class="n">JSONResponse</span>
+<span class="kn">from</span> <span class="nn">http</span> <span class="kn">import</span> <span class="n">HTTPStatus</span>
+<span class="c1"># ...</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">exception_handler</span><span class="p">(</span><span class="n">PedidoNaoEncontradoError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">tratar_erro_pedido_nao_encontrado</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">exc</span><span class="p">:</span> <span class="n">PedidoNaoEncontradoError</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">JSONResponse</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Pedido não encontrado&quot;</span><span class="p">})</span>
+
+<span class="c1"># ...</span>
+</code></pre></div></p>
+</blockquote>
+<p>Vamos fazer um teste então para quando o pedido for encontrado?</p>
+<p>Assim teremos certeza que temos o código de status correto e a saída de dados no formato esperado.</p>
+<blockquote>
+<p>⁉️ Significa, vamos verificar se nossa api está correta? Rode os testes e modifique o código se necessário.</p>
+</blockquote>
+<p>⁉️</p>
+<blockquote>
+<p>tests/test_api.py
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_obter_itens_quando_encontrar_pedido_codigo_ok_deve_ser_retornado</span><span class="p">(</span><span class="n">cliente</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">duble</span><span class="p">(</span><span class="n">identificacao_do_pedido</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">dependency_overrides</span><span class="p">[</span><span class="n">recuperar_itens_por_pedido</span><span class="p">]</span> <span class="o">=</span> <span class="n">duble</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/7e290683-d67b-4f96-a940-44bef1f69d21/items&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">OK</span>
+</code></pre></div></p>
+</blockquote>
+<p>⁉️</p>
+<blockquote>
+<p>tests/test_api.py
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_obter_itens_quando_encontrar_pedido_deve_retornar_itens</span><span class="p">(</span><span class="n">cliente</span><span class="p">):</span>
+    <span class="n">itens</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">Item</span><span class="p">(</span><span class="n">sku</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Item 1&#39;</span><span class="p">,</span> <span class="n">image_url</span><span class="o">=</span><span class="s1">&#39;http://url.com/img1&#39;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s1">&#39;ref1&#39;</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+        <span class="n">Item</span><span class="p">(</span><span class="n">sku</span><span class="o">=</span><span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Item 2&#39;</span><span class="p">,</span> <span class="n">image_url</span><span class="o">=</span><span class="s1">&#39;http://url.com/img2&#39;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s1">&#39;ref2&#39;</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="k">def</span> <span class="nf">duble</span><span class="p">(</span><span class="n">identificacao_do_pedido</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">itens</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">dependency_overrides</span><span class="p">[</span><span class="n">recuperar_itens_por_pedido</span><span class="p">]</span> <span class="o">=</span> <span class="n">duble</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/7e290683-d67b-4f96-a940-44bef1f69d21/items&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="n">itens</span>
+</code></pre></div></p>
+</blockquote>
+<p>Neste momento o arquivo de vocês devem estar da seguinte maneira:</p>
+<details>
+<summary> tests/test_api.py </summary>
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">http</span> <span class="kn">import</span> <span class="n">HTTPStatus</span>
+
+<span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">from</span> <span class="nn">api_pedidos.api</span> <span class="kn">import</span> <span class="n">app</span><span class="p">,</span> <span class="n">recuperar_itens_por_pedido</span>
+<span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
+<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span>
+<span class="kn">from</span> <span class="nn">api_pedidos.esquema</span> <span class="kn">import</span> <span class="n">Item</span>
+<span class="kn">from</span> <span class="nn">api_pedidos.excecao</span> <span class="kn">import</span> <span class="n">PedidoNaoEncontradoError</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">cliente</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_verificar_integridade_devo_ter_como_retorno_codigo_de_status_200</span><span class="p">(</span><span class="n">cliente</span><span class="p">):</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/healthcheck&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">OK</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_verificar_integridade_formato_de_retorno_deve_ser_json</span><span class="p">(</span><span class="n">cliente</span><span class="p">):</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/healthcheck&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;application/json&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">test_quando_verificar_integridade_deve_conter_informacoes</span><span class="p">(</span><span class="n">cliente</span><span class="p">):</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/healthcheck&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">test_obter_itens_quando_receber_identificacao_do_pedido_invalido_um_erro_deve_ser_retornado</span><span class="p">(</span><span class="n">cliente</span><span class="p">):</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/valor-invalido/items&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">UNPROCESSABLE_ENTITY</span>
+
+
+<span class="k">def</span> <span class="nf">test_obter_itens_quando_identificacao_do_pedido_nao_encontrado_um_erro_deve_ser_retornado</span><span class="p">(</span><span class="n">cliente</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">duble</span><span class="p">(</span><span class="n">identificacao_do_pedido</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="n">PedidoNaoEncontradoError</span><span class="p">()</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">dependency_overrides</span><span class="p">[</span><span class="n">recuperar_itens_por_pedido</span><span class="p">]</span> <span class="o">=</span> <span class="n">duble</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/ea78b59b-885d-4e7b-9cd0-d54acadb4933/items&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span>
+
+
+<span class="k">def</span> <span class="nf">test_obter_itens_quando_encontrar_pedido_codigo_ok_deve_ser_retornado</span><span class="p">(</span><span class="n">cliente</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">duble</span><span class="p">(</span><span class="n">identificacao_do_pedido</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">dependency_overrides</span><span class="p">[</span><span class="n">recuperar_itens_por_pedido</span><span class="p">]</span> <span class="o">=</span> <span class="n">duble</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/7e290683-d67b-4f96-a940-44bef1f69d21/items&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">OK</span>
+
+
+<span class="k">def</span> <span class="nf">test_obter_itens_quando_encontrar_pedido_deve_retornar_itens</span><span class="p">(</span><span class="n">cliente</span><span class="p">):</span>
+    <span class="n">itens</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">Item</span><span class="p">(</span><span class="n">sku</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Item 1&#39;</span><span class="p">,</span> <span class="n">image_url</span><span class="o">=</span><span class="s1">&#39;http://url.com/img1&#39;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s1">&#39;ref1&#39;</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+        <span class="n">Item</span><span class="p">(</span><span class="n">sku</span><span class="o">=</span><span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Item 2&#39;</span><span class="p">,</span> <span class="n">image_url</span><span class="o">=</span><span class="s1">&#39;http://url.com/img2&#39;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s1">&#39;ref2&#39;</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="k">def</span> <span class="nf">duble</span><span class="p">(</span><span class="n">identificacao_do_pedido</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">itens</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">dependency_overrides</span><span class="p">[</span><span class="n">recuperar_itens_por_pedido</span><span class="p">]</span> <span class="o">=</span> <span class="n">duble</span>
+    <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/7e290683-d67b-4f96-a940-44bef1f69d21/items&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="n">itens</span>
+</code></pre></div>
+
+</details>
+<details>
+<summary> api_pedidos/api.py </summary>
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">Request</span>
+<span class="kn">from</span> <span class="nn">fastapi.responses</span> <span class="kn">import</span> <span class="n">JSONResponse</span>
+<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span>
+<span class="kn">from</span> <span class="nn">api_pedidos.esquema</span> <span class="kn">import</span> <span class="n">Item</span>
+<span class="kn">from</span> <span class="nn">api_pedidos.excecao</span> <span class="kn">import</span> <span class="n">PedidoNaoEncontradoError</span>
+<span class="kn">from</span> <span class="nn">http</span> <span class="kn">import</span> <span class="n">HTTPStatus</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">recuperar_itens_por_pedido</span><span class="p">(</span><span class="n">identificacao_do_pedido</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">]:</span>
+    <span class="k">pass</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">exception_handler</span><span class="p">(</span><span class="n">PedidoNaoEncontradoError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">tratar_erro_pedido_nao_encontrado</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">exc</span><span class="p">:</span> <span class="n">PedidoNaoEncontradoError</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">JSONResponse</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Pedido não encontrado&quot;</span><span class="p">})</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/healthcheck&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">healthcheck</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/</span><span class="si">{identificacao_do_pedido}</span><span class="s2">/items&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">listar_itens</span><span class="p">(</span><span class="n">itens</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">]</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">recuperar_itens_por_pedido</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">itens</span>
+</code></pre></div>
+</details>
+<details>
+<summary> api_pedidos/esquema.py </summary>
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">sku</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">image_url</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">reference</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">quantity</span><span class="p">:</span> <span class="nb">int</span>
+</code></pre></div>
+</details>
+<details>
+<summary> api_pedidos/excecao.py </summary>
+
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">PedidoNaoEncontradoError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div>
+</details>
+
+<h2 id="refatorando-o-codigo">🧙 Refatorando o código</h2>
+<p>Um único arquivo com vários testes está começando a ficar confuso. Que tal separarmos os testes de cada <em>endpoint</em>?</p>
+<blockquote>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">http</span> <span class="kn">import</span> <span class="n">HTTPStatus</span>
+
+<span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">from</span> <span class="nn">api_pedidos.api</span> <span class="kn">import</span> <span class="n">app</span><span class="p">,</span> <span class="n">recuperar_itens_por_pedido</span>
+<span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
+<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span>
+<span class="kn">from</span> <span class="nn">api_pedidos.esquema</span> <span class="kn">import</span> <span class="n">Item</span>
+<span class="kn">from</span> <span class="nn">api_pedidos.excecao</span> <span class="kn">import</span> <span class="n">PedidoNaoEncontradoError</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">cliente</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">TestHealthCheck</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">test_devo_ter_como_retorno_codigo_de_status_200</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cliente</span><span class="p">):</span>
+        <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/healthcheck&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">OK</span>
+
+
+    <span class="k">def</span> <span class="nf">test_formato_de_retorno_deve_ser_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cliente</span><span class="p">):</span>
+        <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/healthcheck&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;application/json&quot;</span>
+
+
+    <span class="k">def</span> <span class="nf">test_deve_conter_informacoes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cliente</span><span class="p">):</span>
+        <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/healthcheck&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span>
+            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+
+
+<span class="k">class</span> <span class="nc">TestListarPedidos</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">test_quando_identificacao_do_pedido_invalido_um_erro_deve_ser_retornado</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cliente</span><span class="p">):</span>
+        <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/valor-invalido/items&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">UNPROCESSABLE_ENTITY</span>
+
+
+    <span class="k">def</span> <span class="nf">test_quando_pedido_nao_encontrado_um_erro_deve_ser_retornado</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cliente</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">duble</span><span class="p">(</span><span class="n">identificacao_do_pedido</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="n">PedidoNaoEncontradoError</span><span class="p">()</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">dependency_overrides</span><span class="p">[</span><span class="n">recuperar_itens_por_pedido</span><span class="p">]</span> <span class="o">=</span> <span class="n">duble</span>
+        <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/ea78b59b-885d-4e7b-9cd0-d54acadb4933/items&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span>
+
+
+    <span class="k">def</span> <span class="nf">test_quando_encontrar_pedido_codigo_ok_deve_ser_retornado</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cliente</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">duble</span><span class="p">(</span><span class="n">identificacao_do_pedido</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">dependency_overrides</span><span class="p">[</span><span class="n">recuperar_itens_por_pedido</span><span class="p">]</span> <span class="o">=</span> <span class="n">duble</span>
+        <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/7e290683-d67b-4f96-a940-44bef1f69d21/items&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">OK</span>
+
+    <span class="k">def</span> <span class="nf">test_quando_encontrar_pedido_deve_retornar_itens</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cliente</span><span class="p">):</span>
+        <span class="n">itens</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">Item</span><span class="p">(</span><span class="n">sku</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Item 1&#39;</span><span class="p">,</span> <span class="n">image_url</span><span class="o">=</span><span class="s1">&#39;http://url.com/img1&#39;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s1">&#39;ref1&#39;</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">Item</span><span class="p">(</span><span class="n">sku</span><span class="o">=</span><span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Item 2&#39;</span><span class="p">,</span> <span class="n">image_url</span><span class="o">=</span><span class="s1">&#39;http://url.com/img2&#39;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s1">&#39;ref2&#39;</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+        <span class="p">]</span>
+        <span class="k">def</span> <span class="nf">duble</span><span class="p">(</span><span class="n">identificacao_do_pedido</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">itens</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">dependency_overrides</span><span class="p">[</span><span class="n">recuperar_itens_por_pedido</span><span class="p">]</span> <span class="o">=</span> <span class="n">duble</span>
+        <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/7e290683-d67b-4f96-a940-44bef1f69d21/items&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="n">itens</span>
+</code></pre></div>
+</blockquote>
+<p>✨ Aproveitei a refatoração e modifiquei alguns nomes dos testes.</p>
+<p>Agrupei os testes em classes separadas para facilitar a leitura.</p>
+<p>Outro detalhe importante que precisamos fazer é modificar os testes para que eles sejam independentes dos outros testes. Como estamos modificando o app em alguns testes, seria interessante retornar para o estado inicial ao final do teste.</p>
+<p>Vamos criar uma <em>fixture</em> que configure um cenário onde a função foi modificada e ao termino retorna o app para o estado inicial.</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">sobreescreve_recuperar_itens_por_pedido</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">_sobreescreve_recuperar_itens_por_pedido</span><span class="p">(</span><span class="n">itens_ou_erro</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">duble</span><span class="p">(</span><span class="n">identificacao_do_pedido</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">itens_ou_erro</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">itens_ou_erro</span>
+            <span class="k">return</span> <span class="n">itens_ou_erro</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">dependency_overrides</span><span class="p">[</span><span class="n">recuperar_itens_por_pedido</span><span class="p">]</span> <span class="o">=</span> <span class="n">duble</span>
+    <span class="k">yield</span> <span class="n">_sobreescreve_recuperar_itens_por_pedido</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">dependency_overrides</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+<span class="c1"># ...</span>
+
+<span class="k">class</span> <span class="nc">TestListarPedidos</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">test_quando_identificacao_do_pedido_invalido_um_erro_deve_ser_retornado</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cliente</span><span class="p">):</span>
+        <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/valor-invalido/items&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">UNPROCESSABLE_ENTITY</span>
+
+
+    <span class="k">def</span> <span class="nf">test_quando_pedido_nao_encontrado_um_erro_deve_ser_retornado</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cliente</span><span class="p">,</span> <span class="n">sobreescreve_recuperar_itens_por_pedido</span><span class="p">):</span>
+        <span class="n">sobreescreve_recuperar_itens_por_pedido</span><span class="p">(</span><span class="n">PedidoNaoEncontradoError</span><span class="p">())</span>
+        <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/ea78b59b-885d-4e7b-9cd0-d54acadb4933/items&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span>
+
+
+    <span class="k">def</span> <span class="nf">test_quando_encontrar_pedido_codigo_ok_deve_ser_retornado</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cliente</span><span class="p">,</span> <span class="n">sobreescreve_recuperar_itens_por_pedido</span><span class="p">):</span>
+        <span class="n">sobreescreve_recuperar_itens_por_pedido</span><span class="p">([])</span>
+        <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/7e290683-d67b-4f96-a940-44bef1f69d21/items&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">OK</span>
+
+    <span class="k">def</span> <span class="nf">test_quando_encontrar_pedido_deve_retornar_itens</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cliente</span><span class="p">,</span> <span class="n">sobreescreve_recuperar_itens_por_pedido</span><span class="p">):</span>
+        <span class="n">itens</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">Item</span><span class="p">(</span><span class="n">sku</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Item 1&#39;</span><span class="p">,</span> <span class="n">image_url</span><span class="o">=</span><span class="s1">&#39;http://url.com/img1&#39;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s1">&#39;ref1&#39;</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">Item</span><span class="p">(</span><span class="n">sku</span><span class="o">=</span><span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Item 2&#39;</span><span class="p">,</span> <span class="n">image_url</span><span class="o">=</span><span class="s1">&#39;http://url.com/img2&#39;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s1">&#39;ref2&#39;</span><span class="p">,</span> <span class="n">quantity</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+        <span class="p">]</span>
+        <span class="n">sobreescreve_recuperar_itens_por_pedido</span><span class="p">(</span><span class="n">itens</span><span class="p">)</span>
+        <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/7e290683-d67b-4f96-a940-44bef1f69d21/items&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="n">itens</span>
+</code></pre></div>
+Embora a fixture seja um pouco mais complexa, os testes ficam mais simples e garantimos que a sobrescrita não propague entre os testes.</p>
+<h2 id="integrando-a-api-do-magalu">🔗 Integrando a API do Magalu</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Como as APIs abertas do Magalu se encontram em alpha, uma autorização prévia é necessária. Por isso, você pode utilizar uma versão simulada da mesma.</p>
+<p>As instruções de instalação e execução se encontram no readme do <a href="./apis-simuladas">projeto</a>.</p>
+<p>Lembre-se de trocar "https://alpha.dev.magalu.com/" por "http://localhost:8080".</p>
+<p>A APIKEY utilizada no acesso simulado é "5734143a-595d-405d-9c97-6c198537108f".</p>
+</div>
+<p>Vamos iniciar um pouquinho diferente dessa vez, vamos parar a programação guiada por testes e explorar a solução. Depois fica como exercício do leitor escrever estes testes.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Uma dica muito importante é a utilização de marcas nestes testes indicando que eles são lentos.</p>
+<p>Visto a dificuldade de simular a falha de conexão com o servidor, normalmente os testes deste tipo se resumem a caminhos felizes ou críticos.</p>
+<p>Para marcar um teste como lento adicione acima dele <code>@pytest.mark.slow</code> ou adicione a seguinte linha no módulo <code>pytestmark = slow</code>.</p>
+<p>Para evitar a execução destes testes utilize <code>pytest -m "not slow"</code>
+Mais informações em <a href="">https://docs.pytest.org/en/latest/example/markers.html</a>.</p>
+</div>
+<p>Vamos olhar o código de integração com a API do Magalu. Este arquivo deve ser criado com o seguinte conteúdo.</p>
+<blockquote>
+<p>api_pedidos/magalu_api.py</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">http</span> <span class="kn">import</span> <span class="n">HTTPStatus</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span>
+<span class="kn">from</span> <span class="nn">api_pedidos.esquema</span> <span class="kn">import</span> <span class="n">Item</span>
+<span class="kn">from</span> <span class="nn">api_pedidos.excecao</span> <span class="kn">import</span> <span class="n">PedidoNaoEncontradoError</span><span class="p">,</span> <span class="n">FalhaDeComunicacaoError</span>
+
+<span class="kn">import</span> <span class="nn">httpx</span>
+
+<span class="c1"># tenant e apikey fixos somente para demonstrações</span>
+<span class="n">APIKEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;APIKEY&quot;</span><span class="p">,</span> <span class="s2">&quot;coloque aqui sua apikey&quot;</span><span class="p">)</span>
+<span class="n">TENANT_ID</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;TENANT_ID&quot;</span><span class="p">,</span> <span class="s2">&quot;21fea73c-e244-497a-8540-be0d3c583596&quot;</span><span class="p">)</span>
+<span class="n">MAGALU_API_URL</span> <span class="o">=</span> <span class="s2">&quot;https://alpha.api.magalu.com&quot;</span>
+<span class="n">MAESTRO_SERVICE_URL</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">MAGALU_API_URL</span><span class="si">}</span><span class="s2">/maestro/v1&quot;</span>
+
+<span class="k">def</span> <span class="nf">_recupera_itens_por_pacote</span><span class="p">(</span><span class="n">uuid_do_pedido</span><span class="p">,</span> <span class="n">uuid_do_pacote</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">MAESTRO_SERVICE_URL</span><span class="si">}</span><span class="s2">/orders/</span><span class="si">{</span><span class="n">uuid_do_pedido</span><span class="si">}</span><span class="s2">/packages/</span><span class="si">{</span><span class="n">uuid_do_pacote</span><span class="si">}</span><span class="s2">/items&quot;</span><span class="p">,</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;X-Api-Key&quot;</span><span class="p">:</span> <span class="n">APIKEY</span><span class="p">,</span> <span class="s2">&quot;X-Tenant-Id&quot;</span><span class="p">:</span> <span class="n">TENANT_ID</span><span class="p">},</span>
+    <span class="p">)</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="n">Item</span><span class="p">(</span>
+            <span class="n">sku</span><span class="o">=</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;product&quot;</span><span class="p">][</span><span class="s2">&quot;code&quot;</span><span class="p">],</span>
+            <span class="c1"># campos que utilizam a função get são opicionais</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;product&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+            <span class="n">image_url</span><span class="o">=</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;product&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;image_url&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+            <span class="n">reference</span><span class="o">=</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;product&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;reference&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+            <span class="n">quantity</span><span class="o">=</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">],</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">recuperar_itens_por_pedido</span><span class="p">(</span><span class="n">identificacao_do_pedido</span><span class="p">:</span> <span class="n">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">]:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">MAESTRO_SERVICE_URL</span><span class="si">}</span><span class="s2">/orders/</span><span class="si">{</span><span class="n">identificacao_do_pedido</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;X-Api-Key&quot;</span><span class="p">:</span> <span class="n">APIKEY</span><span class="p">,</span> <span class="s2">&quot;X-Tenant-Id&quot;</span><span class="p">:</span> <span class="n">TENANT_ID</span><span class="p">},</span>
+        <span class="p">)</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="n">pacotes</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;packages&quot;</span><span class="p">]</span>
+        <span class="n">itens</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">pacote</span> <span class="ow">in</span> <span class="n">pacotes</span><span class="p">:</span>
+            <span class="n">itens</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                <span class="n">_recupera_itens_por_pacote</span><span class="p">(</span><span class="n">identificacao_do_pedido</span><span class="p">,</span> <span class="n">pacote</span><span class="p">[</span><span class="s2">&quot;uuid&quot;</span><span class="p">])</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">itens</span>
+    <span class="k">except</span> <span class="n">httpx</span><span class="o">.</span><span class="n">HTTPStatusError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="c1"># aqui poderiam ser tratados outros erros como autenticação</span>
+        <span class="k">if</span> <span class="n">exc</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PedidoNaoEncontradoError</span><span class="p">()</span> <span class="kn">from</span> <span class="nn">exc</span>
+        <span class="k">raise</span> <span class="n">exc</span>
+    <span class="k">except</span> <span class="n">httpx</span><span class="o">.</span><span class="n">HTTPError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">FalhaDeComunicacaoError</span><span class="p">()</span> <span class="kn">from</span> <span class="nn">exc</span>
+</code></pre></div>
+<blockquote>
+<p>💁 Uma ferramenta muito interessante para testar nosso código sem precisar fazer as chamadas reais a todo momento é o <a href="https://github.com/kevin1024/vcrpy">vcrpy</a>. Ele grava as respostas das requisições uma única vez e depois faz a simulação das chamadas.</p>
+</blockquote>
+<p>Leia o código e entenda o que está acontecendo.</p>
+<p>Uma coisa interessante apareceu durante o desenvolvimento deste código. Erros de comunicação com o servidor remoto precisam ser tratados.</p>
+<p>Vamos adicionar um teste para isto.</p>
+<p>❌</p>
+<blockquote>
+<p>tests/test_api.py
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">api_pedidos.excecao</span> <span class="kn">import</span> <span class="n">PedidoNaoEncontradoError</span><span class="p">,</span> <span class="n">FalhaDeComunicacaoError</span>
+
+
+<span class="c1"># ...</span>
+
+    <span class="c1"># ... classe de testes ...</span>
+    <span class="k">def</span> <span class="nf">test_quando_fonte_de_pedidos_falha_um_erro_deve_ser_retornado</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cliente</span><span class="p">,</span> <span class="n">sobreescreve_recuperar_itens_por_pedido</span><span class="p">):</span>
+        <span class="n">sobreescreve_recuperar_itens_por_pedido</span><span class="p">(</span><span class="n">FalhaDeComunicacaoError</span><span class="p">())</span>
+        <span class="n">resposta</span> <span class="o">=</span> <span class="n">cliente</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/ea78b59b-885d-4e7b-9cd0-d54acadb4933/items&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">resposta</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">BAD_GATEWAY</span>
+</code></pre></div></p>
+</blockquote>
+<p>✔️ </p>
+<blockquote>
+<p>api_pedidos/excecao.py</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
+
+
+<span class="k">class</span> <span class="nc">FalhaDeComunicacaoError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div>
+<p>✔️ </p>
+<blockquote>
+<p>api_pedidos/api.py</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">api_pedidos.excecao</span> <span class="kn">import</span> <span class="n">PedidoNaoEncontradoError</span><span class="p">,</span> <span class="n">FalhaDeComunicacaoError</span>
+<span class="c1"># ...</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">exception_handler</span><span class="p">(</span><span class="n">FalhaDeComunicacaoError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">tratar_erro_falha_de_comunicacao</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">exc</span><span class="p">:</span> <span class="n">FalhaDeComunicacaoError</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">JSONResponse</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">BAD_GATEWAY</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Falha de comunicação com o servidor remoto&quot;</span><span class="p">})</span>
+<span class="c1"># ...</span>
+</code></pre></div>
+<p>Ufa! Agora podemos testar a nossa api.</p>
+<p>Substitua a função (<code>recuperar_itens_por_pedido</code>) criada anteriormente pela nossa  nova função e vamos testar manualmente nossa api.</p>
+<h2 id="testando-manualmente">🔧 Testando manualmente</h2>
+<p>A nossa aplicação pode estar ainda rodando, mas caso não esteja vamos inicia-la.</p>
+<p>O comando para isto é <code>uvicorn --reload api_pedidos.api:app</code>.</p>
+<p>Vamos testar alguns cenários?</p>
+<p>O que acontece se passar um valor qualquer ao invés de um uuid válido?</p>
+<p><code>http :8000/orders/invalido/items</code></p>
+<p>E um pedido que não existe?</p>
+<p><code>http :8000/orders/e3ae3598-8034-4374-8eed-bdca8c31d5a0/items</code></p>
+<p>Por fim vamos ver um pedido que existe.</p>
+<p><code>http :8000/orders/efb77dcf-d83c-4935-81ac-7be5f37e6cdc/items</code></p>
+<p>Você pode testar a falha do servidor remoto modificando a url no arquivo <code>api_pedidos/magalu_api.py</code>.</p>
+<h2 id="salvando-a-versao-atual-do-codigo">💾 Salvando a versão atual do código</h2>
+<p>Com tudo terminado, vamos salvar a versão atual do código.</p>
+<p>Primeiro passo é checar o que foi feito até agora:</p>
+<div class="highlight"><pre><span></span><code>$ git status
+On branch main
+Your branch is up to date with <span class="s1">&#39;origin/main&#39;</span>.
+
+Changes not staged <span class="k">for</span> commit:
+  <span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="o">)</span>
+  <span class="o">(</span>use <span class="s2">&quot;git restore &lt;file&gt;...&quot;</span> to discard changes <span class="k">in</span> working directory<span class="o">)</span>
+        modified:   api_pedidos/api.py
+        modified:   tests/test_api.py
+
+Untracked files:
+  <span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="k">in</span> what will be committed<span class="o">)</span>
+        api_pedidos/esquema.py
+        api_pedidos/excecao.py
+        api_pedidos/magalu_api.py
+
+no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
+</code></pre></div>
+<p>Vamos adicionar ao versionamento os arquivos novos e avisar modificações em alguns já existentes.</p>
+<p><code>git add api_pedidos tests</code></p>
+<p>💾 Agora vamos consolidar uma nova versão.</p>
+<p><code>git commit -m "Adiciona listagem de itens em um pedido"</code></p>
+<p>🐱 Por fim envie ao github a versão atualizada do projeto.</p>
+<p><code>git push</code></p>
+<p>Podemos marcar como pronto as seguintes tarefas:</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Dado um pedido, retornar os seus itens</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Os itens de um pedido devem conter um identificador (sku), uma descrição, uma imagem, uma referência e a quantidade.</p>
+</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">🐂<p>Uma API robusta possui uma entrada de dados e resposta bem definida, facilitando assim integração com outros sistemas.</p>
+</p>
+</div>
+
+              
+            </article>
+            
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+      
+        
+        <a href="../ola_api/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 👋 Olá API" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              👋 Olá API
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../docs/" class="md-footer__link md-footer__link--next" aria-label="Próximo: 📜 Documentação" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              📜 Documentação
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.0238f547.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,766 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../imgs/favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
+    
+    
+      
+        <title>📜 Documentação - Construindo APIs robustas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="brown" data-md-color-accent="amber">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documentacao" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Construindo APIs robustas" class="md-header__button md-logo" aria-label="Construindo APIs robustas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2M1 2v2h2l3.6 7.59-1.36 2.45c-.15.28-.24.61-.24.96a2 2 0 0 0 2 2h12v-2H7.42a.25.25 0 0 1-.25-.25c0-.05.01-.09.03-.12L8.1 13h7.45c.75 0 1.41-.42 1.75-1.03l3.58-6.47c.07-.16.12-.33.12-.5a1 1 0 0 0-1-1H5.21l-.94-2M7 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Construindo APIs robustas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              📜 Documentação
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="brown" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="brown" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cassiobotaro/construindo-apis-robustas" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cassiobotaro/construindo-apis-robustas
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Construindo APIs robustas" class="md-nav__button md-logo" aria-label="Construindo APIs robustas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2M1 2v2h2l3.6 7.59-1.36 2.45c-.15.28-.24.61-.24.96a2 2 0 0 0 2 2h12v-2H7.42a.25.25 0 0 1-.25-.25c0-.05.01-.09.03-.12L8.1 13h7.45c.75 0 1.41-.42 1.75-1.03l3.58-6.47c.07-.16.12-.33.12-.5a1 1 0 0 0-1-1H5.21l-.94-2M7 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2Z"/></svg>
+
+    </a>
+    Construindo APIs robustas
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cassiobotaro/construindo-apis-robustas" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cassiobotaro/construindo-apis-robustas
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        ▶️ Introdução
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planejando/" class="md-nav__link">
+        💭 Planejando o que será desenvolvido
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ferramentas/" class="md-nav__link">
+        🧰 Escolhendo as melhores ferramentas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projeto/" class="md-nav__link">
+        📐 Iniciando o projeto
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ola_api/" class="md-nav__link">
+        👋 Olá API
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../externos/" class="md-nav__link">
+        🤝 Integração com serviços externos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          📜 Documentação
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        📜 Documentação
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-documentar" class="md-nav__link">
+    📖 Por que documentar?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aprimorando-nossa-documentacao" class="md-nav__link">
+    📔 Aprimorando nossa documentação
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salvando-a-versao-atual-do-codigo" class="md-nav__link">
+    💾 Salvando a versão atual do código
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../continua/" class="md-nav__link">
+        ✔️ Integração contínua
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../desafios/" class="md-nav__link">
+        🏆 Desafios
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assincrono/" class="md-nav__link">
+        🐆 Processos assíncronos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../breaker/" class="md-nav__link">
+        🔌 Circuit breaker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../avancadas/" class="md-nav__link">
+        🦸 Técnicas (um pouco mais avançadas)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../referencias/" class="md-nav__link">
+        📑 Referências e Dicas
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-documentar" class="md-nav__link">
+    📖 Por que documentar?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aprimorando-nossa-documentacao" class="md-nav__link">
+    📔 Aprimorando nossa documentação
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salvando-a-versao-atual-do-codigo" class="md-nav__link">
+    💾 Salvando a versão atual do código
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/cassiobotaro/construindo-apis-robustas/edit/master/docs/docs.md" title="Editar esta página" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="documentacao">📜 Documentação</h1>
+<p><img alt="" src="../imgs/docs.jpg" /></p>
+<h2 id="por-que-documentar">📖 Por que documentar?</h2>
+<p>Temos nossa API funcionando, mas ainda não temos nenhuma documentação.</p>
+<p>Como esperar a integração de terceiros em nosso sistema?</p>
+<p>Seria tão bom se pudesse transformar todo esse código produzido até agora com as definições de valores de entrada e saída em um documento de forma que fosse mais fácil de entender.</p>
+<p>Por sorte o FastAPI já tem um <a href="https://fastapi.tiangolo.com/tutorial/swagger-ui/"><code>Swagger</code></a> que pode ser usado para gerar uma documentação.</p>
+<p>Mas onde está essa documentação? Preciso dar algum comando especial?</p>
+<p>Até agora estávamos testando nossa aplicação manualmente utilizando a ferramenta <code>httpie</code>, mas que tal se tivessemos uma interface mais amigável para testar nossa aplicação?</p>
+<p>Se a sua aplicação não estiver no ar, suba-a através do comando:</p>
+<div class="highlight"><pre><span></span><code>uvicorn --reload api_pedidos.api:app
+</code></pre></div>
+<p>Agora acesse a URL <code>http://localhost:8000/docs</code> e veja a documentação.</p>
+<p>Alem desta interface, temos também a geração automática de uma documentação seguindo as especificações da <a href="https://swagger.io/specification/">OpenAPI 3.0</a>. Você pode acessa-la através do endereço <code>http://localhost:8000/docs/openapi.json</code>.</p>
+<p>Isto nos traz dois benefícios, agora possuimos uma documentação interativa seguindo um padrão consolidado no mercado, e também possuimos uma documentação que pode ser usada para gerar automaticamente um cliente da API em diversas linguagens.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Consulte <a href="">https://swagger.io/tools/swagger-codegen/</a> para saber mais sobre o processo de geração de clientes à partir de uma documentação.</p>
+</div>
+<h2 id="aprimorando-nossa-documentacao">📔 Aprimorando nossa documentação</h2>
+<p>Navegando por nossa api percebemos que ambos os endpoints estão agrupados em conjunto chamado <em>default</em>.</p>
+<p>Podemos melhorar isto agrupando os endpoints de recursos similares utilizando <em>tags</em>.</p>
+<p>Hoje nossa documentação está assim:</p>
+<p><img alt="antes de colocar tag" src="../imgs/antes_tag.png" /></p>
+<p>Modificando ambos os endpoints para serem agrupados por tags, ficamos assim:</p>
+<blockquote>
+<p>api_pedidos/api.py
+<div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/healthcheck&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;healthcheck&quot;</span><span class="p">])</span>
+<span class="c1"># ...</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/</span><span class="si">{identificacao_do_pedido}</span><span class="s2">/items&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pedidos&quot;</span><span class="p">])</span>
+<span class="c1"># ...</span>
+</code></pre></div></p>
+</blockquote>
+<p><img alt="após colocar tag" src="../imgs/apos_tag.png" /></p>
+<p>Uma outra melhoria que podemos fazer em nossa documentação  é aprimorar a exibição de cada um dos endpoints (hoje a descrição curta é apenas o nome da função que utilizamos).</p>
+<p>Essa alteração será feita no arquivo <code>api_pedidos/api.py</code>:</p>
+<blockquote>
+<p>api_pedidos/api.py
+<div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/healthcheck&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;healthcheck&quot;</span><span class="p">],</span> <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;Integridade do sistema&quot;</span><span class="p">)</span>
+<span class="c1"># ...</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/</span><span class="si">{identificacao_do_pedido}</span><span class="s2">/items&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pedidos&quot;</span><span class="p">],</span> <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;Itens de um pedido&quot;</span><span class="p">)</span>
+<span class="c1"># ...</span>
+</code></pre></div>
+<img alt="após adicionar resumo do endpoint" src="../imgs/apos_sumario.png" /></p>
+</blockquote>
+<p>Vamos adicionar também uma descrição mais detalhada para cada <em>endpoint</em>.</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/healthcheck&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;healthcheck&quot;</span><span class="p">],</span> <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;Integridade do sistema&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Checa se o servidor está online&quot;</span><span class="p">)</span>
+<span class="c1"># ...</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/</span><span class="si">{identificacao_do_pedido}</span><span class="s2">/items&quot;</span><span class="p">,</span> <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;Itens de um pedido&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pedidos&quot;</span><span class="p">],</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Retorna todos os itens de um determinado pedido&quot;</span><span class="p">)</span>
+<span class="c1"># ...</span>
+</code></pre></div>
+<img alt="após adicionar detalhes do endpoint" src="../imgs/apos_descricao_1.png" /></p>
+<p><img alt="após adicionar detalhes do endpoint" src="../imgs/apos_descricao_2.png" /></p>
+<p>Uma outra melhoria seria tornar explícito o retorno dos <em>endpoints</em> desenvolvidos até agora.</p>
+<p>Começando pelo <em>healthcheck</em>:</p>
+<p>Antes da melhoria, a documentação era assim:</p>
+<p><img alt="antes de adicionar esquema de retorno do healthcheck" src="../imgs/antes_esquema_health.png" /></p>
+<blockquote>
+<p>api_pedidos/esquema.py
+<div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
+<span class="k">class</span> <span class="nc">HealthCheckResponse</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">status</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div></p>
+<p>api_pedidos/api.py
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">api_pedidos.esquema</span> <span class="kn">import</span> <span class="n">HealthCheckResponse</span><span class="p">,</span> <span class="n">Item</span>
+<span class="c1"># ...</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/healthcheck&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;healthcheck&quot;</span><span class="p">],</span> <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;Integridade do sistema&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Checa se o servidor está online&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">HealthCheckResponse</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">healthcheck</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">HealthCheckResponse</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;ok&quot;</span><span class="p">)</span>
+<span class="c1"># ...</span>
+</code></pre></div></p>
+</blockquote>
+<p>Após a melhoria, a documentação fica assim:</p>
+<p><img alt="após adicionar esquema de retorno do healthcheck" src="../imgs/apos_esquema_health.png" /></p>
+<p>Vamos fazer um ajuste similar para o <em>endpoint</em> de <em>pedidos</em>:</p>
+<p>Antes da melhoria, a documentação era assim:</p>
+<p><img alt="antes de adicionar esquema de retorno de itens de um pedido" src="../imgs/antes_esquema_itens.png" /></p>
+<blockquote>
+<p>api_pedidos/api.py
+<div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/</span><span class="si">{identificacao_do_pedido}</span><span class="s2">/items&quot;</span><span class="p">,</span> <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;Itens de um pedido&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pedidos&quot;</span><span class="p">],</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Retorna todos os itens de um determinado pedido&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">])</span>
+<span class="c1"># ... </span>
+</code></pre></div></p>
+</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning<p>Se estiver utilizando Python na em versões anteriores a 3.9, deve-se utilizar o tipo <code>List[Item]</code> para o retorno do endpoint.</p>
+</p>
+</div>
+<p>Depois da melhoria, a documentação fica assim:</p>
+<p><img alt="após adicionar esquema de retorno de itens de um pedido" src="../imgs/apos_esquema_itens.png" /></p>
+<p>Durante a implementação nós definimos alguns cenários possíveis como o pedido não existir, ou não conseguir se comunicar com a API externa. Mas estes retornos não estão sinalizados na nossa documentação.</p>
+<p>Vamos adicioná-los?!</p>
+<p>Primeira coisa, talvez seja interessante padronizarmos os retornos de erro da nossa api em um esquema.</p>
+<blockquote>
+<p>api_pedidos/esquema.py
+<div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
+<span class="k">class</span> <span class="nc">ErrorResponse</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div></p>
+</blockquote>
+<p>Depois disso vamos adicionar o esquema de retorno de erro na documentação:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/orders/</span><span class="si">{identificacao_do_pedido}</span><span class="s2">/items&quot;</span><span class="p">,</span> <span class="n">responses</span><span class="o">=</span><span class="p">{</span>
+    <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span><span class="o">.</span><span class="n">value</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Pedido não encontrado&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">ErrorResponse</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">BAD_GATEWAY</span><span class="o">.</span><span class="n">value</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Falha de comunicação com o servidor remoto&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">ErrorResponse</span><span class="p">,</span>
+    <span class="p">}},</span> <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;Itens de um pedido&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pedidos&quot;</span><span class="p">],</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Retorna todos os itens de um determinado pedido&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">])</span>
+<span class="c1"># ...</span>
+</code></pre></div>
+<p><img alt="após adicionar respostas de erro" src="../imgs/respostas_de_erro.png" /></p>
+<blockquote>
+<p>💁 Ainda temos outras customizações na documentação que podem ser interessantes como exemplos de entradas e saídas. Para mais exemplos consulte: https://fastapi.tiangolo.com/advanced/additional-responses/</p>
+</blockquote>
+<p>🥳 Agora nossa api está documentada! Ficou muito mais fácil para alguém que queira se integrar a sua API. <strong>Mas não se esqueça de manter a documentação sempre atualizada!</strong></p>
+<h2 id="salvando-a-versao-atual-do-codigo">💾 Salvando a versão atual do código</h2>
+<p>Com tudo terminado, vamos salvar a versão atual do código.</p>
+<p>Primeiro passo é checar o que foi feito até agora:</p>
+<div class="highlight"><pre><span></span><code>$ git status
+On branch main
+Your branch is up to date with <span class="s1">&#39;origin/main&#39;</span>.
+
+Changes not staged <span class="k">for</span> commit:
+  <span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="o">)</span>
+  <span class="o">(</span>use <span class="s2">&quot;git restore &lt;file&gt;...&quot;</span> to discard changes <span class="k">in</span> working directory<span class="o">)</span>
+    modified:   api_pedidos/api.py
+    modified:   api_pedidos/esquema.py
+
+no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
+</code></pre></div>
+<p>Vamos adicionar as mudanças nesta revisão.</p>
+<p><code>git add api_pedidos/api.py api_pedidos/esquema.py</code></p>
+<p>💾 Agora vamos consolidar uma nova versão.</p>
+<p><code>git commit -m "Adiciona documentação ao projeto"</code></p>
+<p>🐱 Por fim envie ao github a versão atualizada do projeto.</p>
+<p><code>git push</code></p>
+<p>Agora que temos uma api e documentação, vamos dar um próximo passo na qualidade e evolução do nosso projeto.</p>
+<p>Cumprimos mais um requisito:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Como será consumido por terceiros deve apresentar boa documentação;</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">🐂<p>Uma api robusta possui boa documentação facilitando assim uma integração externa.</p>
+</p>
+</div>
+
+              
+            </article>
+            
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+      
+        
+        <a href="../externos/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 🤝 Integração com serviços externos" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              🤝 Integração com serviços externos
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../continua/" class="md-footer__link md-footer__link--next" aria-label="Próximo: ✔️ Integração contínua" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              ✔️ Integração contínua
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.0238f547.min.js"></script>
+      
+    
+  </body>
+</html>
