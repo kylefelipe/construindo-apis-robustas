@@ -1,8 +1,6 @@
 # 🤝 Integração com serviços externos
 
-<p align="center">
-  <img style="float: right;" src="imgs/login.png" alt="pessoa com computador, sentado em uma cadeira com gato próximo e uma planta"/>
-</p>
+![](imgs/externo.jpg)
 
 Certo, temos a verificação da integridade do sistema, mas ainda temos outras funcionalidades a serem implementadas.
 
@@ -14,11 +12,16 @@ Nossa próxima tarefa será:
 
 Mas antes disto, precisamos conhecer a API que iremos integrar. [Vamos explorar a API do Magalu](explorando_api.md).
 
-> ⚠️ Como as APIs abertas do Magalu se encontram em alpha, uma autorização prévia é necessária. Por isso, você pode utilizar uma versão simulada da mesma.
-> As instruções de instalação e execução se encontram no readme do [projeto](./apis-simuladas).
-> Lembre-se de trocar "https://alpha.dev.magalu.com/" por "http://localhost:8080"
-> A APIKEY utilizada no acesso simulado é "5734143a-595d-405d-9c97-6c198537108f".
->  Não deixe de explorar a API como demonstrado acima, mesmo que seja sua versão simulada.
+!!! warning
+    Como as APIs abertas do Magalu se encontram em alpha, uma autorização prévia é necessária. Por isso, você pode utilizar uma versão simulada da mesma.
+
+    As instruções de instalação e execução se encontram no readme do [projeto](./apis-simuladas).
+
+    Lembre-se de trocar "https://alpha.dev.magalu.com/" por "http://localhost:8080".
+
+    A APIKEY utilizada no acesso simulado é "5734143a-595d-405d-9c97-6c198537108f".
+
+    Não deixe de explorar a API como demonstrado acima, mesmo que seja sua versão simulada.
 
 ## 📄 Definindo um esquema de entrada de dados e resposta
 
@@ -50,7 +53,8 @@ Vamos escrever um esquema representando esta nossa saída de dados?
 
 Vamos criar um arquivo `api_pedidos/esquema.py` e dentro dele vamos adicionar o seguinte conteúdo:
 
-> ℹ️ Utilizaremos a biblioteca [pydantic](https://pydantic-docs.helpmanual.io/) para definir nosso esquema, ela já possui integração com o _FastAPI_ e é uma das mais poderosas ferramentas disponíveis no mercado.
+!!! info
+    Utilizaremos a biblioteca [pydantic](https://pydantic-docs.helpmanual.io/) para definir nosso esquema, ela já possui integração com o _FastAPI_ e é uma das mais poderosas ferramentas disponíveis no mercado.
 
 ```python
 from pydantic import BaseModel
@@ -484,19 +488,26 @@ Embora a fixture seja um pouco mais complexa, os testes ficam mais simples e gar
 
 ## 🔗 Integrando a API do Magalu
 
+!!! warning
+    Como as APIs abertas do Magalu se encontram em alpha, uma autorização prévia é necessária. Por isso, você pode utilizar uma versão simulada da mesma.
 
-> ⚠️ Como as APIs abertas do Magalu se encontram em alpha, uma autorização prévia é necessária. Por isso, você pode utilizar uma versão simulada da mesma.
-> As instruções de instalação e execução se encontram no readme do [projeto](./apis-simuladas).
-> Lembre-se de trocar "https://alpha.dev.magalu.com/" por "http://localhost:8080"
-> A APIKEY utilizada no acesso simulado é "5734143a-595d-405d-9c97-6c198537108f".
+    As instruções de instalação e execução se encontram no readme do [projeto](./apis-simuladas).
+
+    Lembre-se de trocar "https://alpha.dev.magalu.com/" por "http://localhost:8080".
+
+    A APIKEY utilizada no acesso simulado é "5734143a-595d-405d-9c97-6c198537108f".
 
 Vamos iniciar um pouquinho diferente dessa vez, vamos parar a programação guiada por testes e explorar a solução. Depois fica como exercício do leitor escrever estes testes.
 
-> 💁 Uma dica muito importante é a utilização de marcas nestes testes indicando que eles são lentos.
-> Visto a dificuldade de simular a falha de conexão com o servidor, normalmente os testes deste tipo se resumem a caminhos felizes ou críticos.
-> Para marcar um teste como lento adicione acima dele `@pytest.mark.slow` ou adicione a seguinte linha no módulo `pytestmark = slow`.
-> Para evitar a execução destes testes utilize `pytest -m "not slow"`
-> Mais informações em https://docs.pytest.org/en/latest/example/markers.html
+!!! tip
+    Uma dica muito importante é a utilização de marcas nestes testes indicando que eles são lentos.
+
+    Visto a dificuldade de simular a falha de conexão com o servidor, normalmente os testes deste tipo se resumem a caminhos felizes ou críticos.
+
+    Para marcar um teste como lento adicione acima dele `@pytest.mark.slow` ou adicione a seguinte linha no módulo `pytestmark = slow`.
+
+    Para evitar a execução destes testes utilize `pytest -m "not slow"`
+    Mais informações em [https://docs.pytest.org/en/latest/example/markers.html]().
 
 Vamos olhar o código de integração com a API do Magalu. Este arquivo deve ser criado com o seguinte conteúdo.
 
@@ -665,7 +676,7 @@ Vamos adicionar ao versionamento os arquivos novos e avisar modificações em al
 
 `git commit -m "Adiciona listagem de itens em um pedido"`
 
-:octocat: Por fim envie ao github a versão atualizada do projeto.
+🐱 Por fim envie ao github a versão atualizada do projeto.
 
 `git push`
 
@@ -675,10 +686,5 @@ Podemos marcar como pronto as seguintes tarefas:
 
 - [x] Os itens de um pedido devem conter um identificador (sku), uma descrição, uma imagem, uma referência e a quantidade.
 
-> 🐂 Uma API robusta possui uma entrada de dados e resposta bem definida, facilitando assim integração com outros sistemas.
-
-[Documentação ➡️](docs.md)
-
-[⬅️ Olá API](ola_api.md)
-
-[↩️ Voltar ao README ](README.md)
+!!! quote "🐂" 
+        Uma API robusta possui uma entrada de dados e resposta bem definida, facilitando assim integração com outros sistemas.

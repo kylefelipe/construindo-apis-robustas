@@ -1,5 +1,7 @@
 # 🐆 Processos assíncronos
 
+![](imgs/async.jpg)
+
 ## 🔥 O problema
 
 Vamos pensar um pouquinho na funcionalidade "Dado um pedido, retornar os seus itens" que já implementamos.
@@ -30,8 +32,7 @@ Crie um arquivo de exemplo como visto abaixo e execute-o para ver na prática o 
 
 Para executa-lo utilize: `poetry run python exemplo.py`
 
-> exemplo.py
-```python
+```py title="exemplo.py"
 httpx.get("https://httpbin.org/delay/1")  # simula a requisição de um pedido
 print("pedido recuperado")
 for pacote in range(10):  # simula o a iteração sobre os pacotes
@@ -46,8 +47,7 @@ Não ficaríamos ociosos enquanto aguardamos a api do Magalu responder.
 
 E na verdade podemos! Podemos pedir os itens dos pacotes ao mesmo tempo e  aguardar enquanto eles chegam.
 
-> exemplo_async.py
-```python
+```py title="exemplo_async.py"
 import asyncio
 import httpx
 
@@ -87,8 +87,7 @@ Mesmo assim, ao invés de modificar nossas funções feitas até agora, vamos cr
 
 O código será bem similar ao que já vimos no exemplo acima.
 
-> api_produtos/magalu_api_async.py
-```python
+```py title="api_produtos/magalu_api_async.py"
 import asyncio
 import os
 from http import HTTPStatus
@@ -271,7 +270,7 @@ Vamos adicionar ao versionamento os arquivos novos e avisar modificações em al
 
 `git commit -m "Modifica api para responder de forma assíncrona"`
 
-:octocat: Por fim envie ao github a versão atualizada do projeto.
+🐱 Por fim envie ao github a versão atualizada do projeto.
 
 `git push`
 
@@ -279,10 +278,5 @@ Nossa caixa de ferramentas acabou de ganhar uma ferramenta nova e pode ser basta
 
 Vamos seguir para a próxima técnica? Estou ansioso e você?! 🤓
 
-> 🐂 Uma api robusta deve se preocupar com o seu tempo de resposta.
-
-[Circuit breaker ➡️](breaker.md)
-
-[⬅️ Desafios](desafios.md)
-
-[↩️ Voltar ao README ](README.md)
+!!! quote "🐂" 
+        Uma api robusta deve se preocupar com o seu tempo de resposta.

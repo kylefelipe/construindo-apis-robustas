@@ -1,8 +1,6 @@
 # 📐 Iniciando o projeto
 
-<p align="center">
-  <img style="float: right;" src="imgs/planta.png" alt="capacete amarelo e ferramentas de desenho sobre a planta de uma construção"/>
-</p>
+![](imgs/planta.jpg)
 
 O primeiro passo para a construção do nosso projeto é iniciar seu repositório e adicionar suas dependências.
 
@@ -32,7 +30,8 @@ git clone https://github.com/cassiobotaro/tutorial-pybr.git
 
 `git clone` é um comando para criar uma cópia dos arquivos e suas versões. Pode ser feito para trazer uma cópia do repositório do servidor para o computador local.
 
-> ⚠️ Os comandos abaixo devem ser modificados com seu email e nome de usuário do github. USUARIO deve ser modificado para seu usuário do github e EMAIL substituido pelo email utilizado no github.
+!!! warning
+	Os comandos abaixo devem ser modificados com seu email e nome de usuário do github. USUARIO deve ser modificado para seu usuário do github e EMAIL substituido pelo email utilizado no github.
 
 ```bash
 $ git config --local user.email EMAIL
@@ -54,7 +53,8 @@ Execute o comando:
 poetry init -n
 ```
 
-> ℹ️ A opção -n evita que o poetry fique perguntando algumas opções do projeto. Considere remove-la em próximos projetos.
+!!! info
+		A opção -n evita que o poetry fique perguntando algumas opções do projeto. Considere remove-la em próximos projetos.
 
 Este comando iniciliza um arquivo `pyproject.toml` de configuração do projeto.
 
@@ -146,7 +146,8 @@ Execute o comando:
 poetry add httpie --dev
 ```
 
-> ℹ️ Utilizamos a opção --dev pois o httpie é um pacote necessário somente durante o desenvolvimento e não durante a execução do software.
+!!! info
+		Utilizamos a opção --dev pois o httpie é um pacote necessário somente durante o desenvolvimento e não durante a execução do software.
 
 #### Vamos verificar se deu tudo certo?
 Execute o seguinte comando:
@@ -154,7 +155,8 @@ Execute o seguinte comando:
 ```bash
 poetry run http --version
 ```
-> ℹ️ O comando é http e não httpie.
+!!! tip
+		O comando é http e não httpie.
 
 A saída deve ser similar a:
 
@@ -211,8 +213,8 @@ Execute o comando:
 ```
 poetry add pytest --dev
 ```
-
-> ℹ️ Utilizamos a opção --dev pois o pytest é um pacote necessário somente durante o desenvolvimento e não durante a execução do software.
+!!! info
+ 	Utilizamos a opção --dev pois o pytest é um pacote necessário somente durante o desenvolvimento e não durante a execução do software.
 
 #### Vamos verificar se deu tudo certo?
 
@@ -265,14 +267,8 @@ Vemos dois arquivos não rastreados, precisamos avisar ao controle de versão qu
 
 `git commit -m "Adiciona as dependências do projeto"`
 
-:octocat: Por fim, envie ao github a versão atualizada do projeto.
+🐱 Por fim, envie ao github a versão atualizada do projeto.
 
 `git push`
 
 🍰 Entusiasmados a começar a escrever sua aplicação? Agora que temos todo o ambiente configurado, já estamos bem próximo disso. Vamos ao próximo passo!
-
-[Olá API ➡️](ola_api.md)
-
-[⬅️ Escolhendo as melhores ferramentas](ferramentas.md)
-
-[↩️ Voltar ao README ](README.md)

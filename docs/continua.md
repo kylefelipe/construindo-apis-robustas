@@ -37,7 +37,8 @@ Execute o comando abaixo:
 poetry add isort --dev
 ```
 
-> ℹ️ Utilizamos a opção --dev pois é um pacote necessário somente durante o desenvolvimento e não durante a execução do software.
+!!! info
+    Utilizamos a opção --dev pois é um pacote necessário somente durante o desenvolvimento e não durante a execução do software.
 
 #### Configuração
 
@@ -75,7 +76,8 @@ Execute o comando abaixo:
 poetry add black --dev
 ```
 
-> ℹ️ Utilizamos a opção --dev pois é um pacote necessário somente durante o desenvolvimento e não durante a execução do software.
+!!! info
+    Utilizamos a opção --dev pois é um pacote necessário somente durante o desenvolvimento e não durante a execução do software.
 
 #### Configuração
 
@@ -115,7 +117,8 @@ Execute o comando abaixo:
 poetry add flake8 --dev
 ```
 
-> ℹ️ Utilizamos a opção --dev pois é um pacote necessário somente durante o desenvolvimento e não durante a execução do software.
+!!! info
+    Utilizamos a opção --dev pois é um pacote necessário somente durante o desenvolvimento e não durante a execução do software.
 
 #### Como executar
 
@@ -123,13 +126,14 @@ poetry add flake8 --dev
 poetry run flake8 .
 ```
 
-> ℹ️  Pode ser necessário a intervenções manuais para que o código seja corrigido.
+!!! info
+    Pode ser necessário a intervenções manuais para que o código seja corrigido.
 
 ### 🕵️ pre-commit (Menção honrosa 🏅) 
 
 Existem ferramentas que podem executar algum comando antes de um commit, com o objetivo de identificar possíveis problemas no seu programa antes do envio do código para o repositório remoto. Os comandos listados acima são bons exemplos de execuções que podem ocorrer neste momento. Uma das ferramentas que provê essa funcionalidade é o pre-commit. Para saber mais, [clique aqui](https://pre-commit.com/).
 
-## :octocat: Configurando o Github Actions
+## 🐱 Configurando o Github Actions
 
 - Crie a pasta `.github/workflows` dentro do seu repositório. Essa é a pasta padrão para as configurações do Github Actions.
 
@@ -238,7 +242,8 @@ Vamos adicionar também as novas dependências instaladas.
 
 `git add pyproject.toml poetry.lock`
 
-> ⚠️ Adicione também os arquivos que possivelmente foram modificados por nossas ferramentas de qualidade.
+!!! warning
+    Adicione também os arquivos que possivelmente foram modificados por nossas ferramentas de qualidade.
 
 💾 Agora vamos marcar esta versão como consolidada.
 
@@ -246,7 +251,7 @@ Vamos adicionar também as novas dependências instaladas.
 git commit -m "Adiciona integração contínua"
 ```
 
-:octocat: Por fim, envie ao github a versão atualizada do projeto.
+🐱 Por fim, envie ao github a versão atualizada do projeto.
 ```
 git push
 ```
@@ -261,10 +266,5 @@ Confira na aba _actions_ do seu repositório.
 
 ![Github actions em ação](imgs/actions.png)
 
-> 🐂 Uma api robusta possui evolução contínua garantindo qualidade a cada versão.
-
-[Desafios ➡️](desafios.md)
-
-[⬅️ Documentação](docs.md)
-
-[↩️ Voltar ao README ](README.md)
+!!! quote "🐂" 
+    Uma api robusta possui evolução contínua garantindo qualidade a cada versão.

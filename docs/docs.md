@@ -1,5 +1,7 @@
 # 📜 Documentação
 
+![](imgs/docs.jpg)
+
 ## 📖 Por que documentar?
 
 Temos nossa API funcionando, mas ainda não temos nenhuma documentação.
@@ -26,7 +28,8 @@ Alem desta interface, temos também a geração automática de uma documentaçã
 
 Isto nos traz dois benefícios, agora possuimos uma documentação interativa seguindo um padrão consolidado no mercado, e também possuimos uma documentação que pode ser usada para gerar automaticamente um cliente da API em diversas linguagens.
 
-> ℹ️ Consulte https://swagger.io/tools/swagger-codegen/ para saber mais sobre o processo de geração de clientes à partir de uma documentação.
+!!! info
+    Consulte [https://swagger.io/tools/swagger-codegen/]() para saber mais sobre o processo de geração de clientes à partir de uma documentação.
 
 ## 📔 Aprimorando nossa documentação
 
@@ -122,7 +125,8 @@ Antes da melhoria, a documentação era assim:
 # ... 
 ```
 
-> ⚠️ Se estiver utilizando Python na em versões anteriores a 3.9, deve-se utilizar o tipo `List[Item]` para o retorno do endpoint.
+!!! warning
+        Se estiver utilizando Python na em versões anteriores a 3.9, deve-se utilizar o tipo `List[Item]` para o retorno do endpoint.
 
 Depois da melhoria, a documentação fica assim:
 
@@ -192,7 +196,7 @@ Vamos adicionar as mudanças nesta revisão.
 
 `git commit -m "Adiciona documentação ao projeto"`
 
-:octocat: Por fim envie ao github a versão atualizada do projeto.
+🐱 Por fim envie ao github a versão atualizada do projeto.
 
 `git push`
 
@@ -202,10 +206,5 @@ Cumprimos mais um requisito:
 
 - [x] Como será consumido por terceiros deve apresentar boa documentação;
 
-> 🐂 Uma api robusta possui boa documentação facilitando assim uma integração externa.
-
-[Integração contínua ➡️](continua.md)
-
-[⬅️ Integração com serviços externos](externos.md)
-
-[↩️ Voltar ao README ](README.md)
+!!! quote "🐂" 
+        Uma api robusta possui boa documentação facilitando assim uma integração externa.

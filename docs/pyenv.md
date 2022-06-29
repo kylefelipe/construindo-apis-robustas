@@ -45,8 +45,9 @@ pyenv 2.0.7-32-gc81a2810
 
 #### Como usar?
 
-> ℹ️ É recomendado antes de instalar uma versão que se instale as dependências do python de acordo com o sistema operacional
-> https://github.com/pyenv/pyenv/wiki#suggested-build-environment
+!!! tip
+    É recomendado antes de instalar uma versão que se instale as dependências do python de acordo com o sistema operacional
+    [https://github.com/pyenv/pyenv/wiki#suggested-build-environment]()
 
 Para instalar uma versão específica do python basta digitar:
 

@@ -1,5 +1,7 @@
 # 🦸 Técnicas (um pouco) mais avançadas
 
+![](imgs/avancadas.jpg)
+
 ## 🚱 Rate limit
 ### O que é ?
 Rate Limit é a limitação de solicitação entre um controlador de origem e uma interface destino. No mundo de serviços web podemos dizer que Rate Limit é a limitação de requisições de um usuário (client) para uma WebAPI.
@@ -101,11 +103,3 @@ A utilização de tarefa em background pode ser utilizado para processar dados e
 - https://www.rabbitmq.com/
 - https://kafka-python.readthedocs.io/en/master/usage.html
 - https://pika.readthedocs.io/en/0.10.0/
-
-
-
-[Referências e Dicas ➡️](referencias.md)
-
-[⬅️ Circuit breaker](breaker.md)
-
-[↩️ Voltar ao README ](README.md)

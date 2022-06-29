@@ -1,8 +1,6 @@
 # 🐐 Desenvolvimento guiado por testes (TDD)
 
-<p align="center">
-  <img style="float: right;" src="imgs/tdd.png" alt="ciclos do tdd"/>
-</p>
+![](imgs/tdd.png)
 
 ## Testes automatizados
 

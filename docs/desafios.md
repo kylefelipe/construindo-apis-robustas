@@ -1,5 +1,7 @@
 # 🏆 Desafios
 
+![](imgs/desafios.jpg)
+
 À partir de agora, o seu desafio é continuar escrevendo as funcionalidades que faltam, mas vou te dar umas dicas.
 
 Relembrando, ainda temos as seguintes tarefas a serem feitas.
@@ -23,8 +25,10 @@ Relembrando, ainda temos as seguintes tarefas a serem feitas.
 - [x] O sistema deve apresentar testes.
 
 
-> ⚠️ Como as APIs abertas do Magalu se encontram em alpha, uma autorização prévia é necessária. Por isso, você pode utilizar uma versão simulada da mesma.
-> Se não lembra os endpoints disponíveis, volte na [página](./explorando_api.md) onde exploramos a API.
+!!! warning
+    Como as APIs abertas do Magalu se encontram em alpha, uma autorização prévia é necessária. Por isso, você pode utilizar uma versão simulada da mesma.
+
+    Se não lembra os endpoints disponíveis, volte na [página](./explorando_api.md) onde exploramos a API.
 
 
 ## 📊 Relatório
@@ -99,7 +103,6 @@ O retorno deve ser um JSON com o seguinte formato:
 ```
 Caso algum produto não seja encontrado, deve ser adicionado a chave `"missing"`. 
 
-> Para a realização deste desafio durante o tutorial, um caminho de acesso a api será disponibilizado, porém caso esteja acompanhando este tutorial posteriormente, uma cópia da api está disponível [aqui](./fake-catalog).
 
 ## 🏁 Concluindo (ou quase)
 
@@ -109,10 +112,6 @@ Ainda temos várias coisas não abordadas neste guia que complementam nossa apli
 
 Caso tenham gostado, não deixe de estrelar o repositório como forma de gratidão. Isto motiva a escrever mais materiais interessantes como este em português.
 
-> 🐂 Uma api robusta possui as funcionalidades esperadas.
+!!! quote "🐂" 
+    Uma api robusta possui as funcionalidades esperadas.
 
-[Processos assíncronos ➡️](assincrono.md)
-
-[⬅️ Integração contínua](continua.md)
-
-[↩️ Voltar ao README ](README.md)

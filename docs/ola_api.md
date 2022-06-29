@@ -1,8 +1,6 @@
 # 👋 Olá API
 
-<p align="center">
-  <img style="float: right;" src="imgs/codigo.png" alt="mãos escrevendo código com caneca de café ao fundo"/>
-</p>
+![](imgs/codigo.jpg)
 
 ## ✍️ Escrevendo código
 
@@ -36,7 +34,8 @@ Lá dentro, crie um arquivo com nome `test_api.py` que deve ficar da seguinte ma
 
 Agora vamos escrever nosso primeiro teste!
 
-> ℹ️ O código está escrito em português para ajudar na didática.
+!!! info
+    O código está escrito em português para ajudar na didática.
 
 Para indicar a integridade do nosso sistema, vamos ter um _endpoint_ `/healthcheck`, que ao receber um requisição, deve retornar o código de status `200 OK` e este será nosso primeiro teste.
 
@@ -54,11 +53,12 @@ def test_quando_verificar_integridade_devo_ter_como_retorno_codigo_de_status_200
     assert resposta.status_code == HTTPStatus.OK
 ```
 
-> ℹ️ Note a utilização do prefixo `test`  nos diretórios e arquivos de testes. Isto é necessário para que a ferramenta de testes do Python consiga identificar os testes e executá-los.
+
+Note a utilização do prefixo `test`  nos diretórios e arquivos de testes. Isto é necessário para que a ferramenta de testes do Python consiga identificar os testes e executá-los.
 
 Vamos rodar pela primeira vez os testes no nosso projeto.
 
-> ℹ️ Para não precisar digitar a todo momento os comandos em sua forma extensa `poetry run <comando>` vamos ativar nosso ambiente virtual com o comando `poetry shell`.
+Para não precisar digitar a todo momento os comandos em sua forma extensa `poetry run <comando>` vamos ativar nosso ambiente virtual com o comando `poetry shell`.
 
 ```
 python -m pytest tests/
@@ -313,7 +313,8 @@ http :8000/healthcheck
 
 ![implementação do healthcheck](imgs/healthcheck.png "implementação do healthcheck")
 
-> ℹ️ Como adicionamos a opção `--reload`, cada vez que modificamos o código, o resultado é modificado também, sem precisar desligar e rodar de novo a aplicação.
+!!! info
+    Como adicionamos a opção `--reload`, cada vez que modificamos o código, o resultado é modificado também, sem precisar desligar e rodar de novo a aplicação.
 
 ## 💾 Salvando a versão atual do código
 
@@ -346,7 +347,7 @@ git add api_pedidos tests
 git commit -m "Adicionando healthcheck"
 ```
 
-:octocat: Por fim envie ao github a versão atualizada do projeto.
+🐱 Por fim envie ao github a versão atualizada do projeto.
 
 ```
 git push
@@ -362,11 +363,6 @@ Podemos marcar como pronto as seguintes tarefas:
 
 - [x] O sistema deve apresentar testes (Acabamos cumprindo uma tarefa a mais!)
 
+!!! quote "🐂" 
+        Uma API robusta provê maneiras de verificar sua integridade.
 
-> 🐂 Uma API robusta provê maneiras de verificar sua integridade.
-
-[Integração com serviços externos ➡️](externos.md)
-
-[⬅️ Iniciando o projeto](projeto.md)
-
-[↩️ Voltar ao README ](README.md)

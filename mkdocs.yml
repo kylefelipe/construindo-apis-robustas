@@ -1,0 +1,49 @@
+site_name: Construindo APIs robustas
+theme:
+  name: material
+  language: pt
+  palette: 
+    - scheme: default
+      primary: brown
+      accent: amber
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to dark mode
+    - scheme: slate 
+      primary: brown
+      accent: amber
+      toggle:
+        icon: material/lightbulb 
+        name: Switch to light mode
+  icon:
+    logo: material/cart
+  favicon: imgs/favicon.ico
+  features:
+    - content.tabs.link
+markdown_extensions:
+  - pymdownx.emoji
+  - pymdownx.tasklist:
+     custom_checkbox: true
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.tabbed:
+      alternate_style: true
+  - md_in_html
+repo_name: cassiobotaro/construindo-apis-robustas
+repo_url: https://github.com/cassiobotaro/construindo-apis-robustas
+
+nav:
+  - ▶️ Introdução: index.md
+  - 💭 Planejando o que será desenvolvido: planejando.md
+  - 🧰 Escolhendo as melhores ferramentas: ferramentas.md
+  - 📐 Iniciando o projeto: projeto.md
+  - 👋 Olá API: ola_api.md
+  - 🤝 Integração com serviços externos: externos.md
+  - 📜 Documentação: docs.md
+  - ✔️ Integração contínua: continua.md
+  - 🏆 Desafios: desafios.md
+  - 🐆 Processos assíncronos: assincrono.md
+  - 🔌 Circuit breaker: breaker.md
+  - 🦸 Técnicas (um pouco mais avançadas): avancadas.md
+  - 📑 Referências e Dicas: referencias.md
+

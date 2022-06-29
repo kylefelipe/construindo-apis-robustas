@@ -1,10 +1,9 @@
 # 💭 Planejando o que será desenvolvido 
 
-<p align="center">
-  <img style="float: right;" src="imgs/projeto.png" alt="Homem a frente de website de compras com caixas ao lado"/>
-</p>
+![](imgs/projeto.jpg)
 
-> ⚠️ O sistema desenvolvido é apenas para fins de treinamento e desenvolvimento das técnicas apresentadas. Aprenda as técnicas e certifique-se que são adequadas para o seu sistema.
+!!! warning "Aviso legal"
+        O sistema desenvolvido é apenas para fins de treinamento e desenvolvimento das técnicas apresentadas. Aprenda as técnicas e certifique-se que são adequadas para o seu sistema.
 
 ## 🛍️ O que será desenvolvido?
 
@@ -38,6 +37,4 @@ Este sistema deve seguir as seguintes regras:
 
 😨 E agora, o que fazer? Por onde começo? Vamos escolher nossas ferramentas!
 
-[Escolhendo as melhores ferramentas ➡️](ferramentas.md)
 
-[↩️ Voltar ao README ](README.md)

@@ -1,8 +1,6 @@
 # 🧰 Escolhendo as melhores ferramentas
 
-<p align="center">
-  <img style="float: right;" src="imgs/ferramentas.png" alt="Ferramentas sob a mesa"/>
-</p>
+![](imgs/ferramentas.jpg)
 
 ## 🛠️ Ferramentas
 
@@ -10,7 +8,8 @@ Assim como um carpinteiro, eletricista, o programador precisa de ferramentas par
 
 Escolher as melhores ferramentas faz parte do seu trabalho.
 
-> Para quem tem um martelo, todo parafuso é prego.
+!!! quote
+        Para quem tem um martelo, todo parafuso é prego.
 
 Para o tutorial foram escolhidas ferramentas pensando na didática da pessoa desenvolvedora assim como compatibilidade de sistemas operacionais e também por serem as principais escolhas no mercado de trabalho.
 
@@ -18,7 +17,8 @@ Para garantir o acompanhamento do tutorial, verifique se as ferramentas apresent
 
 ### 🐍 Python
 
-> ⚠️ É necessário versão igual ou acima da versão 3.7 para acompanhar o curso.
+!!! warning
+        É necessário versão igual ou acima da versão 3.7 para acompanhar o curso.
 
 #### O que é?
 
@@ -60,7 +60,8 @@ Existe uma ferramenta que nos ajuda a resolver este problema, gerenciando difere
 
 Se quiser utiliza-la, siga este [guia](pyenv.md).
 
-> ℹ️ Esta ferramenta não é necessária neste tutorial mas pode ser bem útil no seu dia a dia.
+!!! info
+        Esta ferramenta não é necessária neste tutorial mas pode ser bem útil no seu dia a dia.
 
 ### 📦 Poetry
 
@@ -80,7 +81,7 @@ O poetry nos ajuda a ter um ambiente separado para cada projeto.
 
 Abra um terminal e digite:
 
-```
+```bash
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
 ```
 
@@ -100,7 +101,7 @@ A saída deverá ser similar a apresentada abaixo:
 Poetry version 1.1.11
 ```
 
-### :octocat: Git
+### 🐱 Git
 
 [Git](https://git-scm.com/) é um controle de versão livre e de código aberto, construído para lidar com projetos pequenos e grandes de maneira rápida e eficiente.
 
@@ -160,10 +161,3 @@ Você pode abrir o VS Code e verificar se o plugin foi instalado com sucesso.
 ---
 
 🎉  Parabéns! Instalamos todas as ferramentas que precisaremos para acompanhar este curso, vamos para o próximo passo!
-
-
-[Iniciando o projeto ➡️](projeto.md)
-
-[⬅️ Planejando o que será desenvolvido](planejando.md)
-
-[↩️ Voltar ao README ](README.md)

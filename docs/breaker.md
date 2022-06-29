@@ -1,5 +1,7 @@
 # 🔌 Circuit breaker
 
+![](imgs/disjuntor.jpg)
+
 # 🔥 O problema
 
 Sistemas falham! E devemos estar preparados pra quando isto ocorrer.
@@ -26,7 +28,8 @@ Assim funciona o _circuit breaker_ na computação. Quando falamos em abrir um c
 
 Nygard em seu livro [Release It](https://www.amazon.com.br/Release-It-Nygard-Dahl/dp/8573500862) explica bem o circuit breaker.
 
-> [...] circuit breakers protect overeager gadget hounds from burning their houses down. The principle is the same: detect excess usage, fail first, and open the circuit. More abstractly, the circuit breaker exists to allow one subsystem (an electrical circuit) to fail (excessive current draw, possibly from a short circuit) without destroying the entire system (the house). Furthermore, once the danger has passed, the circuit breaker can be reset to restore full function to the system.
+!!! quote
+    [...] circuit breakers protect overeager gadget hounds from burning their houses down. The principle is the same: detect excess usage, fail first, and open the circuit. More abstractly, the circuit breaker exists to allow one subsystem (an electrical circuit) to fail (excessive current draw, possibly from a short circuit) without destroying the entire system (the house). Furthermore, once the danger has passed, the circuit breaker can be reset to restore full function to the system.
 
 Nosso sistema tem os seguintes estados:
 
@@ -45,8 +48,7 @@ Crie um arquivo de exemplo como visto abaixo e execute-o para ver na prática o 
 
 Para executa-lo utilize: `python exemplo_circuito_breaker.py`
 
-> exemplo_circuito_breaker.py
-```python
+```py title="exemplo_circuito_breaker.py"
 import asyncio
 
 import httpx
@@ -73,14 +75,16 @@ async def main():
 asyncio.run(main())
 ```
 
-> ⚠️ Como as APIs abertas do Magalu se encontram em alpha, uma autorização prévia é necessária. Por isso, você pode utilizar uma versão simulada da mesma.
-> As instruções de instalação e execução se encontram no readme do [projeto](./apis-simuladas).
+!!! warning
+    Como as APIs abertas do Magalu se encontram em alpha, uma autorização prévia é necessária. Por isso, você pode utilizar uma versão simulada da mesma.
+
+    As instruções de instalação e execução se encontram no readme do [projeto](./apis-simuladas).
 
 Este código simula o que chamamos de estado de circuito fechado, as chamadas a api externa estão sendo feitas e respondendo normalmente.
 
 Agora vamos introduzir um pouco de caos e ver o que acontece.
 
-> Se estiver acompanhando o tutorial posteriormente, modifique a variável de ambiente `FAIL_RATE` para 70 (valor expresso em porcentagem) e execute o código da api simulada novamente.
+Se estiver acompanhando o tutorial posteriormente, modifique a variável de ambiente `FAIL_RATE` para 70 (valor expresso em porcentagem) e execute o código da api simulada novamente.
 
 Rode novamente nosso código (talvez seja necessário rodar algumas vezes) e veja o que acontece: `python exemplo_circuito_breaker.py`.
 
@@ -131,8 +135,7 @@ Essa configuração pode ser feita baseada também em número de [requisições 
 
 Além da regra de abertura do circuito, vamos definir um cache para armazenar as informações do circuito e das requisições que falharam.
 
-> exemplo_circuito_breaker.py
-```python
+```py
 # ...
 from aiocache import Cache
 from lasier.adapters.caches import AiocacheAdapter
@@ -239,9 +242,3 @@ Nesse ponto temos uma API que melhoramos o tempo de resposta e aumentamos a robu
 😊 Olha tudo que fizemos até agora!🎈 Vamos continuar?
 
 > 🐂 Uma api robusta deve estar preparada para lidar com falhas.
-
-[Técnicas (um pouco) mais avançadas ➡️](avancadas.md)
-
-[⬅️ Processos assíncrono](assincrono.md)
-
-[↩️ Voltar ao README ](README.md)
