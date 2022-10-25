@@ -9,7 +9,7 @@
 
 Será desenvolvido um sistema com objetivo de obter informações a respeito de pedidos.
 
-Os pedidos serão obtidos através de integração com o sistema de pedidos do **[Magalu](https://www.magazineluiza.com.br/)**.
+Os pedidos serão obtidos através de integração com um sistema de pedidos externo.
 
 Vamos fazer o enriquecimento desta informação antes de sua exibição e também iremos prover alguns dados estatísticos sobre o pedido.
 
