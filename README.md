@@ -1,6 +1,6 @@
 # 🐂 Construindo API's robustas utilizando Python
 
-![](imgs/touro.png)
+![](docs/imgs/touro.jpg)
 
 Neste tutorial vamos aprender a construir API's utilizando Python e FastAPI, integrá-las a serviços externos e também a como torná-las robustas. Discutiremos a importância de uma boa documentação e testes.
 
